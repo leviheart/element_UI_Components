@@ -61,6 +61,7 @@ export default {
   watch: {
     value: {
       handler(newValue) {
+        console.log(newValue);
         newValue && (this.image_url = newValue);
       },
       immediate: true,

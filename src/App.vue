@@ -3,9 +3,9 @@
 </template>
 
 <style lang="scss">
-body { padding: 0; }
-#app {
-  
+body {
+  padding: 0;
 }
-
+#app {
+}
 </style>

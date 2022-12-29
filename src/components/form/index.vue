@@ -122,6 +122,7 @@ export default {
   },
   beforeMount() {
     this.form_item = createRules(this.item, this.field);
+    console.log(this.form_item);
   },
   methods: {
     handlerButton(data) {

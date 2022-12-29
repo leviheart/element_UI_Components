@@ -8,6 +8,7 @@
   >
     <el-row :gutter="gutter">
       <template v-for="item in form_item">
+        <!-- 由于初始form_item是[],所以会提示,但不影响 -->
         <el-col :key="item.prop" :span="item.col || col">
           <el-form-item
             :label="item.label"
