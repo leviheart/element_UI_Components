@@ -45,6 +45,10 @@ export default {
           message: "请输入姓名",
           col: 6,
           label_width: "100px",
+          rules: [
+            { min: 3, max: 10, message: "请输入3~10个字符", trigger: "change" },
+            { validator: validateName, trigger: "change" },
+          ],
         },
         {
           type: "input",

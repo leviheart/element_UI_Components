@@ -17,8 +17,6 @@
   </div>
 </template>
 <script>
-import { FormItem } from "element-ui";
-
 export default {
   name: "Home",
   components: {
@@ -104,7 +102,7 @@ export default {
         {
           type: "select",
           prop: "class_room1",
-          label: "异步教室",
+          label: "2023",
           required: true,
           props: {
             label: "class_name",
@@ -163,26 +161,12 @@ export default {
   methods: {
     getDetailed() {
       this.$axios({ url: "/api/detailed/" }).then((response) => {
-        // const data = response.data;
-        const data = {
-          name: "LEVI",
-          file: require("@/assets/logo.png"),
-          start_date: "2022-06-01",
-          end_date: "2022-12-29 17:26:32",
-          food: ["1", "3"],
-          car: "1",
-          class_room: 1,
-          class_room1: 5,
-          class_item: {
-            id: 5,
-            label: "五班",
-          },
-          createDate: ["2022-06-01", "2022-12-29 17:26:32"],
-        };
+        console.log(response, "接口其四");
+        const data = response.data;
         this.form_field = data;
         // 还原日期字段
         this.form_field.createDate = [data.start_date, data.end_date];
-        // 异步教室的默认下拉
+        // 2023的默认下拉
         const options = [
           { class_name: data.class_item.label, id: data.class_item.id },
         ];
@@ -224,6 +208,7 @@ export default {
     apiGetSms() {
       return new Promise((resolve, reject) => {
         this.$axios("/api/code/").then((response) => {
+          console.log(response, "接口其五");
           this.$message.success(response.data.data);
           resolve();
         });

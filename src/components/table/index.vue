@@ -1,4 +1,5 @@
-<!-- $attrs 目的父传孙，写在子组件的孙组件上，孙组件里prop定义传入的属性
+<!-- 讲解该页面的参数
+$attrs中包含的数据=(父组件总的传过来的数据-子组件props接收的数据）。父组件传给子组件的数据中没有用props接收的数据会在$attrs里面
 handlerSearch 搜索功能的回调函数
 span-method 合并单元格
 @select @select-all checkbox勾选事件
@@ -69,9 +70,24 @@ render-header 列标题 Label 区域渲染使用的 Function -->
 
 <script>
 // 自动化的规则，通type属性，自动读到目录组件
-//第二个参数为是否读取子目录，第三个为读取文件的正则
+//第一个参数需要检索的目录的路径，第二个参数为是否读取子文件夹，第三个为读取文件的正则匹配以 index.vue 结尾的文件。
 const modules = {};
 const files = require.context("../control", true, /\index.vue$/);
+console.log(
+  files.keys(),
+  `[
+    "./checkbox/index.vue",
+    "./date/index.vue",
+    "./function/index.vue",
+    "./image/index.vue",
+    "./input/index.vue",
+    "./radio/index.vue",
+    "./select/index.vue",
+    "./switch/index.vue",
+    "./text/index.vue",
+    "./upload/index.vue"
+]`
+);
 files.keys().forEach((item) => {
   const key = item.split("/");
   const name = key[1];
@@ -180,6 +196,10 @@ export default {
     this.table_data = [];
   },
   beforeMount() {
+    console.log(
+      this.$attrs,
+      "这是在父组件里传递过来还未被props所接收的所有属性"
+    );
     this.initRequest && this.getTableList();
   },
   methods: {
@@ -243,6 +263,7 @@ export default {
       this.request_data_backup = request_data;
       // 接口的请求
       this.$axios(request_data).then((response) => {
+        console.log(response, "接口其三");
         let request_data = response.data.data;
         // 总页数更新
         this.total = response.data.total;
@@ -264,6 +285,7 @@ export default {
     },
     /** 远程排序 */
     sortChange({ column, prop, order }) {
+      //在这里面调用接口,后端返回排序后的表格数据
       const sort_by = column.sortBy;
       console.log(sort_by, order);
     },

@@ -130,6 +130,10 @@ export default {
     };
   },
   beforeMount() {
+    console.log(
+      this.$attrs,
+      "这是在父子组件里层层传递还未被props所接收的所有属性"
+    );
     this.form_item = this.item;
   },
   methods: {

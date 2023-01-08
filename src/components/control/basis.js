@@ -124,6 +124,7 @@ export const mixin = {
             }
             // 接口的请求
             this.$axios(request_data).then(response => {
+                console.log(response, "接口其一")
                 this.option = response.data.data
             })
         },

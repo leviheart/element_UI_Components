@@ -83,6 +83,7 @@ export default {
         data: form,
       };
       this.$axios(request_data).then((response) => {
+        console.log(response, "接口其二");
         const data = response.data;
         console.log(data);
         this.image_url = data.url;

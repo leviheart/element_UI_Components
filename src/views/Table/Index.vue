@@ -2,10 +2,10 @@
   <div class="table-wrap">
     <div class="table-content">
       <!-- merge 合并单元格
-		on-load 是否开启接口请求完成后的数据回调 onload回调函数
-		checkbox 是否开启多选框
-		init-checked 默认勾选 -->
-      <!-- :search="true"  搜索功能 暂时用不到 -->
+		  on-load 是否开启接口请求完成后的数据回调 onload回调函数
+		  checkbox 是否开启多选框
+		  init-checked 默认勾选 -->
+      <!-- :search="true"  开启搜索功能 -->
       <!-- search_button,search_item,search_field是从./search里解构的对象属性 -->
       <!-- 接口传参 get方法 default-params post方法 data -->
       <a-table
@@ -69,6 +69,10 @@ export default {
           prop: "operation",
           type: "slot",
           slot_name: "operation",
+          // render_header: (h, { column, $index }) => {
+          // render_header用来自定义表头
+          //   return <div>43dfsgdsfg</div>;
+          // },
         },
       ],
       tableData: [
