@@ -36,11 +36,7 @@ export default {
   },
   computed: {},
   watch: {},
-  methods: {
-    handlerFocus() {
-      this.getOption();
-    },
-  },
+  methods: {},
 };
 </script>
 <style></style>

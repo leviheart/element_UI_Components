@@ -63,42 +63,6 @@ export default {
           label: "日期",
           required: true,
         },
-        // {
-        //   type: 'checkbox',
-        //   prop: "food",
-        //   label: "食物",
-        //   required: true,
-        //   options: [
-        //     { label: "苹果", value: '1' },
-        //     { label: "杨梅", value: '2' },
-        //     { label: "芒果", value: '3' },
-        //   ]
-        // },
-        // {
-        //   type: 'radio',
-        //   prop: "car",
-        //   label: "交通工具",
-        //   required: true,
-        //   options: [
-        //     { label: "汽车", value: '1' },
-        //     { label: "高铁", value: '2' },
-        //     { label: "飞机", value: '3' },
-        //   ]
-        // },
-        // {
-        //   type: 'select',
-        //   prop: "class_room",
-        //   label: "教室",
-        //   required: true,
-        //   props: {
-        //     label: "name"
-        //   },
-        //   options: [
-        //     { name: "vue.js一班", value: 1 },
-        //     { name: "vue.js二班", value: 2 },
-        //     { name: "vue.js三班", value: 3 },
-        //   ]
-        // },
         {
           type: "select",
           prop: "class_room1",

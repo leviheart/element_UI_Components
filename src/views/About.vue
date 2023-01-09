@@ -2,7 +2,7 @@
   <div class="about">
     <cd-menu :list="menu_list" @callback="callbackMenu">
       <template v-slot:scope="slot">
-        <div class="aaa" @click.stop="aaaa(slot.data)">
+        <div class="red" @click.stop="test(slot.data)">
           {{ slot.data.label }}
         </div>
       </template>
@@ -60,7 +60,7 @@ export default {
     };
   },
   methods: {
-    aaaa(data) {
+    test(data) {
       console.log(data);
     },
     callbackMenu(data) {
@@ -80,7 +80,7 @@ export default {
 </script>
 
 <style>
-.aaa {
+.red {
   color: red;
 }
 </style>

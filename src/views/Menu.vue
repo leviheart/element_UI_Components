@@ -5,8 +5,10 @@
         <h4 :style="{ 'padding-left': item.level * 10 + 'px' }">
           {{ item.label }}
         </h4>
+        <!-- About文件slot传入的插槽位置 -->
         <slot name="scope" :data="item"></slot>
       </div>
+      <!-- 判断并递归调用menu组件 -->
       <template v-if="item.children && item.children.length > 0">
         <cd-menu :list="item.children" @callback="changeMenu">
           <template v-slot:scope="slot">
