@@ -4,6 +4,7 @@ import {
   validatorPass,
 } from "@/utils/validator";
 const createRules = (data, field) => {
+  console.log(data,field);
   data.forEach((item) => {
     // 检测规则是一个数组类型 Array
     let rules_array = [];
@@ -61,8 +62,6 @@ const createRules = (data, field) => {
     }
     item.rules = rules_array;
   });
-  console.log(data);
-
   return data;
 };
 

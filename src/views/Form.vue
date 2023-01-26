@@ -127,8 +127,8 @@ export default {
         c: "",
         d: "",
         e: "",
-        f: 0,
-        g: 0,
+        f: 1,
+        g: 1,
       },
       form_hidden: {
         a: false,

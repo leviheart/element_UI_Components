@@ -151,17 +151,14 @@ export default {
     },
     submitForm() {
       return new Promise((resolve, reject) => {
-        console.log(this.form_field);
         setTimeout(() => {
           reject();
         }, 2000);
       });
     },
     cancel(data) {
-      console.log(data);
     },
     next(data) {
-      console.log(data);
     },
     selectClassRoom(data) {
       this.form_field.class_room1 = data;

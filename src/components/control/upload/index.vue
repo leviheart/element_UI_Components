@@ -61,7 +61,6 @@ export default {
   watch: {
     value: {
       handler(newValue) {
-        console.log(newValue);
         newValue && (this.image_url = newValue);
       },
       immediate: true,
@@ -85,7 +84,6 @@ export default {
       this.$axios(request_data).then((response) => {
         console.log(response, "接口其二");
         const data = response.data;
-        console.log(data);
         this.image_url = data.url;
       });
     },
@@ -102,7 +100,6 @@ export default {
     },
     /** 选择文件列表 */
     handlerPerview(file) {
-      console.log(file);
     },
     /** 超出选择数量  */
     handlerExceed() {
@@ -125,7 +122,6 @@ export default {
       });
     },
     handlerRemove() {
-      console.log(333);
     },
   },
 };

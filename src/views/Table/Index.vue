@@ -172,6 +172,9 @@ export default {
     },
   },
   mounted() {},
+  destroyed() {
+    console.log("destroyed");
+  },
   methods: {
     aaa(data) {
       console.log(345, this.$refs.table.request_data_backup);
