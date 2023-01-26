@@ -131,9 +131,10 @@ export default {
         // 还原日期字段
         this.form_field.createDate = [data.start_date, data.end_date];
         // 2023的默认下拉
-        const options = [
-          { class_name: data.class_item.label, id: data.class_item.id },
-        ];
+        const options = [];
+        data.class_item.forEach((element) => {
+          options.push({ class_name: element.label, id: element.id });
+        });
         const select = this.form_item.filter(
           (elem) => elem.prop === "class_room1"
         );
