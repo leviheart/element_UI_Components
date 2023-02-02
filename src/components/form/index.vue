@@ -176,7 +176,6 @@ export default {
       }
     },
     cancel(data) {
-      console.log("重置表单");
     },
     callback(params) {
       relationHidden({
