@@ -28,3 +28,6 @@ export default {
 };
 </script>
 <style></style>
+// 传入的值props,option
+// 复选框绑定的数据val为被选中,变动时触发handlerChange
+// label属性对应checkbox的显示的文字,如果与val里的匹配则被选中

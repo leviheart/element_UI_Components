@@ -157,10 +157,8 @@ export default {
         }, 2000);
       });
     },
-    cancel(data) {
-    },
-    next(data) {
-    },
+    cancel(data) {},
+    next(data) {},
     selectClassRoom(data) {
       this.form_field.class_room1 = data;
     },
