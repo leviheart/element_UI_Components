@@ -9,21 +9,26 @@ const routes = [
     path: "/",
     name: "Home",
     component: Home,
-  },
-  {
-    path: "/form",
-    name: "Form",
-    component: () => import("../views/Form.vue"),
-  },
-  {
-    path: "/table",
-    name: "Table",
-    component: () => import("../views/Table/Index"),
-  },
-  {
-    path: "/about",
-    name: "About",
-    component: () => import("../views/About.vue"),
+    meta: { btnPermissions: ["admin", "supper", "normal"] }, //页面需要的权限
+    children: [
+      {
+        path: "/form",
+        name: "Form",
+        component: () => import("../views/Form.vue"),
+        meta: { btnPermissions: ['admin','supper'] }
+      },
+      {
+        path: "/table",
+        name: "Table",
+        component: () => import("../views/Table/Index"),
+        meta: { btnPermissions: ['admin'] }
+      },
+      {
+        path: "/about",
+        name: "About",
+        component: () => import("../views/About.vue"),
+      },
+    ],
   },
 ];
 
