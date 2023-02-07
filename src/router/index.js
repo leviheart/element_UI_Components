@@ -15,13 +15,13 @@ const routes = [
         path: "/form",
         name: "Form",
         component: () => import("../views/Form.vue"),
-        meta: { btnPermissions: ['admin','supper'] }
+        meta: { btnPermissions: ["admin", "supper"] },
       },
       {
         path: "/table",
         name: "Table",
         component: () => import("../views/Table/Index"),
-        meta: { btnPermissions: ['admin'] }
+        meta: { btnPermissions: ["admin"] },
       },
       {
         path: "/about",
