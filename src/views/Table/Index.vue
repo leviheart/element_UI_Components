@@ -224,7 +224,7 @@ export default {
 .table-content {
   background-color: #fff;
   width: 1440px;
-  padding: 16px;
+  padding: 0 16px; //盒子模型,会撑开长度
   margin: auto;
 }
 

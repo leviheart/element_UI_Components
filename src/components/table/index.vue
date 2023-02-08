@@ -14,7 +14,7 @@ render-header 列标题 Label 区域渲染使用的 Function -->
       ref="table"
       border
       :span-method="spanMethod"
-      :data="table_data"
+      :data="table_data.slice((current_page - 1) * size, current_page * size)"
       style="width: 100%"
       @select="handleSelectionChange"
       @select-all="handleSelectionChange"
@@ -59,8 +59,8 @@ render-header 列标题 Label 区域渲染使用的 Function -->
       @size-change="handleSizeChange"
       @current-change="handleCurrentChange"
       :current-page.sync="current_page"
-      :page-size="10"
-      :page-sizes="[10, 20, 50, 100]"
+      :page-size="size"
+      :page-sizes="[5, 10, 20, 50]"
       layout="total, sizes, prev, pager, next, jumper"
       :total="total"
     >
