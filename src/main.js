@@ -9,7 +9,7 @@ import "element-ui/lib/theme-chalk/index.css";
 import "./styles/icon/iconfont.css";
 // axios
 import axios from "axios";
-import has from './utils/permissionDir';
+import has from "./directive/permissionDir";
 
 Vue.prototype.$axios = axios; //全局注册，使用方法为:this.$axios
 Vue.config.productionTip = false;
