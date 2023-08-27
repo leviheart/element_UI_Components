@@ -48,7 +48,7 @@ export default {
           prop: "file",
           label: "文件",
           model: "card",
-          url: "/api/upload/",
+          url: "/api/upload",
           method: "post",
           accept: ".zip, .rar, .jpg",
           multiple: true,
@@ -77,7 +77,7 @@ export default {
           },
           fetch_search: true,
           keyword: "aaaaa",
-          url: "/api/classroom/",
+          url: "/api/classroom",
           callback: (data) => this.selectClassRoom(data),
         },
       ],
@@ -116,7 +116,7 @@ export default {
         init_request: true,
         fetch_search: true,
         keyword: "aaaaa",
-        url: "/api/classroom/",
+        url: "/api/classroom",
         callback: (data) => this.selectClassRoom(data),
       },
     };
@@ -127,23 +127,25 @@ export default {
   mounted() {},
   methods: {
     getDetailed() {
-      this.$axios({ url: "/api/detailed/" }).then((response) => {
+      this.$axios({ url: "/api/detailed" }).then((response) => {
         console.log(response, "接口其四");
-        const data = response.data;
+        // const data = response.data;
+        const data = response.data[0];
         this.form_field = data;
-        // 还原日期字段
-        this.form_field.createDate = [data.start_date, data.end_date];
-        // 2023的默认下拉
-        const options = [];
-        data.class_item.forEach((element) => {
-          options.push({ class_name: element.label, id: element.id });
-        });
-        const select = this.form_item.filter(
-          (elem) => elem.prop === "class_room1"
-        );
-        if (select.length > 0) {
-          this.$set(select[0], "options", options);
-        }
+        console.log(response, data);
+        // // 还原日期字段
+        // this.form_field.createDate = [data.start_date, data.end_date];
+        // // 2023的默认下拉
+        // const options = [];
+        // data.class_item.forEach((element) => {
+        //   options.push({ class_name: element.label, id: element.id });
+        // });
+        // const select = this.form_item.filter(
+        //   (elem) => elem.prop === "class_room1"
+        // );
+        // if (select.length > 0) {
+        //   this.$set(select[0], "options", options);
+        // }
       });
     },
     apiFuncitonSwitch() {
@@ -170,7 +172,7 @@ export default {
     },
     apiGetSms() {
       return new Promise((resolve, reject) => {
-        this.$axios("/api/code/").then((response) => {
+        this.$axios("/api/code").then((response) => {
           console.log(response, "接口其五");
           this.$message.success(response.data.data);
           resolve();

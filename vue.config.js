@@ -1,7 +1,8 @@
 const path = require("path");
+const CopyWebpackPlugin = require("copy-webpack-plugin");
 module.exports = {
   // 基本路径
-  publicPath: process.env.NODE_ENV === "production" ? "" : "./",
+  publicPath: process.env.NODE_ENV === "production" ? "/dist/" : "./",
   // 输出文件目录
   outputDir: process.env.NODE_ENV === "production" ? "dist" : "devdist",
   // eslint-loader 是否在保存的时候检查
@@ -30,6 +31,28 @@ module.exports = {
         "@c": path.resolve(__dirname, "./src/components"),
       },
     };
+    // Create a new instance of CopyWebpackPlugin
+    const copyWebpackPlugin = new CopyWebpackPlugin({
+      patterns: [
+        // {
+        //   from: path.resolve(__dirname, "../static"),
+        //   to: "static",
+        //   globOptions: {
+        //     ignore: [".*"],
+        //   },
+        // },
+        {
+          from: path.resolve(__dirname, "./WEB-INF"),
+          to: "WEB-INF",
+          globOptions: {
+            ignore: [".*"],
+          },
+        },
+      ],
+    });
+
+    // Add the CopyWebpackPlugin instance to the plugins array
+    config.plugins.push(copyWebpackPlugin);
   },
   // 生产环境是否生成 sourceMap 文件
   productionSourceMap: false,
@@ -66,8 +89,8 @@ module.exports = {
         target: process.env.VUE_API_DEV_TARGET, //API服务器的地址
         changeOrigin: true,
         // pathRewrite: {
-        //     [`^${process.env.VUE_APP_API}`]: ''
-        // }
+        //   [`^${process.env.VUE_APP_API}`]: "",
+        // },
       },
     },
   },
