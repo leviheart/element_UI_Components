@@ -14,12 +14,14 @@
         </a-select>
       </template>
     </a-form>
+    {{ test1 }}
   </div>
 </template>
 <script>
 //动态引入 适用于不常用或很大的组件
 //在这种情况下，组件代码并不是在项目启动时就加载，而是在需要该组件时再进行加载。
 //这种方法对于特别大的组件非常有效，因为它们只有在需要时才加载，可以避免加载不必要的代码。
+import { mapMutations, mapState } from "vuex";
 export default {
   name: "Home",
   components: {
@@ -124,8 +126,16 @@ export default {
   beforeMount() {
     this.getDetailed();
   },
-  mounted() {},
+  mounted() {
+    this.SET_TEST1('21');
+  },
+  computed:{
+    ...mapState("app",["test1"]),
+  },
   methods: {
+    ...mapMutations("app",{
+      SET_TEST1: "SET_TEST1",
+    }),
     getDetailed() {
       this.$axios({ url: "/api/detailed/" }).then((response) => {
         console.log(response, "接口其四");
