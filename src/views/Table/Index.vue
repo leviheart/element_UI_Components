@@ -10,7 +10,7 @@
       <!-- 接口传参 get方法 default-params post方法 data -->
       <a-table
         ref="table"
-        url="/api/name/"
+        url="/api/name"
         merge
         on-load
         checkbox

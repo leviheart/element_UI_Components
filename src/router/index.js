@@ -53,13 +53,22 @@ const routes = [
           icon: "plus",
         },
       },
+      {
+        path: "*",
+        name: "NotFound",
+        component: () => import("../views/NotFound.vue"),
+        meta: {
+          name: "404",
+          icon: "exclamation",
+        },
+      },
     ],
   },
 ];
 
 const router = new VueRouter({
-  // mode: "history",
-  base: process.env.BASE_URL,
+  mode: "history",
+  base: "/dist/",
   routes,
 });
 
