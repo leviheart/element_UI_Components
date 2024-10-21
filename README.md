@@ -1,6 +1,7 @@
 # business-component
 
 ```
+对应git上的element_UI_Components项目
 前端npm install安装依赖包 启动使用npm run serve
 代码格式化使用Prettier-Code formatter插件
 后端接口使用node的express框架提供
